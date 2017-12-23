@@ -1,3 +1,3 @@
 # Smart_Lock
 
-Sistem za elektronsko odklepanje omaric na gimnaziji Vič z uporabo NFC ali fingerptint avtentikacije
+Sistem za elektronsko odklepanje omaric na Gimnaziji Vič z uporabo NFC ali fingerprint avtentikacije
