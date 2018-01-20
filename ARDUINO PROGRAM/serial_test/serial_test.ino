@@ -1,4 +1,4 @@
-# Program, ki vse, kar dobi, poslje na software serial. Vse dobljene odgovore izpisuje v hex obliki in v ascii-ju.
+// Program, ki vse, kar dobi, poslje na software serial. Vse dobljene odgovore izpisuje v hex obliki in v ascii-ju.
 
 #include <SoftwareSerial.h>
 #include <FastCRC.h>
