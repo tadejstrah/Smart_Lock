@@ -7,6 +7,8 @@ FastCRC8 CRC8;
 #define TOGGLE 2 // DE in RE na pin 2
 #define BUFLEN 10
 #define BUF_OVFL_ERR 0xFE
+#define NFC_DUPLICATE_ERR 0xFE
+
 // UKAZI //
 #define NfEn 'e'
 #define NfAd 'a'
@@ -84,6 +86,31 @@ void serialEvent() {
           }
           sendResponse(crc8, b, sizeof(b));
         }
+        else if(data[1] == NfAd) {
+          // Shrani UID
+          // Naslednji bajt je sestavljen iz št. omarice (zadnji 3 biti) in lokacije (prvi bit)
+          // Sledi 7 bajtov UID-ja kartice (povečaj dolžino sporočila!!!) - 4-bajtni UID ima na koncu ničle
+          byte temp[7];
+          for(byte x=0;x<7;x++) temp[x] = data[x+3];
+          if(findByUID(temp) == 255) {
+            byte start = 14 * (7 & data[2])+7*(128 & data[2]);
+            for(byte x=0;x<7;x++) EEPROM.write(start + x, data[x + 3]);
+            char b[1] = {OKByte};
+            sendResponse(crc8,b,1);
+          }
+          else {
+            // Kartica je že v bazi podatkov
+            char b[1] = {NFC_DUPLICATE_ERR};
+            sendResponse(crc8,b,1);
+          }
+        }
+        else if(data[1] == NfRm) {
+          // Odstrani kartico
+          byte start = 14 * (7 & data[2])+7*(128 & data[2]);
+          for(byte x=0;x<7;x++) EEPROM.write(start + x, 0);
+          char b[1] = {OKByte};
+          sendResponse(crc8,b,1);
+        }
         // Preberi vsebino sporocila --------------------------------------------
       }
     }
@@ -92,6 +119,7 @@ void serialEvent() {
     while (Serial.available()) Serial.read();
   }
 }
+
 void sendResponse(const char * crc8, const char response[], const char len) {
   if (len > MSG_LENGTH - 3) {
     return; // za vsak slučaj
@@ -139,6 +167,21 @@ void addEvent(byte val) {
       break;
     }
   }
+}
+
+byte findByUID(byte uid[]) {
+  // Preišče lokalno bazo in vrne omarico, ki pripada tej kartici. Če ne obstaja, vrne 255.
+  for(byte x=0;x<8;x++) {
+    for(byte y=0;y<7;x++) {
+      if(EEPROM.read(14*x+y) != uid[y]) break;
+      if(y == 6) return x;
+    }
+    for(byte y=7;y<14;x++) {
+      if(EEPROM.read(14*x+7+y) != uid[y]) break;
+      if(y == 13) return x;
+    }
+  }
+  return 255;
 }
 
 // void sendOneByteResponse(const char *crc8, char response) {
