@@ -19,7 +19,7 @@ FastCRC8 CRC8;
 #define REPLY 0xEE
 
 byte temp_counter = 0;
-byte resp_checksum = 0;
+
 // Vprasanje: ADDR + sporočilo (8 bajtov) + CRC8 + \n
 // Odgovor: 0xFE + checksum vprašanja + response (npr. 0x2A) + CRC8 + \n
 long times[8]; // Časi odklepov vseh 8 omaric
@@ -49,16 +49,6 @@ void serialEvent() {
       if (crc8 == data[sizeof(data) - 2]) {
         // Checksum OK
         // Preberi vsebino sporocila --------------------------------------------
-        if (temp_counter > 0 and data[1] == REPLY and data[2] == resp_checksum and data[3] == OKByte) {
-          // Raspberry je uspešno prejel prvih (temp_counter) dogodkov; lahko jih izbrišemo
-          for (byte x = 0; x < BUFLEN; x++) {
-            if (buf[x] != 0) {
-              temp_counter--;
-              buf[x] = 0;
-              if (temp_counter == 0) break; // Odposlani dogodki pobrisani
-            }
-          }
-        }
         else if (data[1] == Open and data[2] - '0' < 8 and data[2] - '0' >= 0) {
           // Odklep na daljavo
           unlock(data[2] - '0');
@@ -68,6 +58,16 @@ void serialEvent() {
         }
         else if (data[1] == Novo) {
           // Kaj je novega?
+          if(data[2] == OKByte and temp_counter > 0) {
+            // Izbriši prejšnji paket
+            for (byte x = 0; x < BUFLEN; x++) {
+              if (buf[x] != 0) {
+                temp_counter--;
+                buf[x] = 0;
+                if (temp_counter == 0) break;
+              }
+            }
+          }
           byte b[MSG_LENGTH - 3];
           memset(b, 0, sizeof(b));
           byte count = 0;
@@ -132,7 +132,6 @@ void sendResponse(const char * crc8, const char response[], const char len) {
     data[x + 2] = response[x];
   }
   data[MSG_LENGTH - 1] = CRC8.smbus(data, sizeof(data) - 2);
-  resp_checksum = CRC8.smbus(data, sizeof(data) - 2);
   data[MSG_LENGTH] = '\n';
   digitalWrite(TOGGLE, HIGH);
   for (byte x = 0; x <= MSG_LENGTH; x++)  {
