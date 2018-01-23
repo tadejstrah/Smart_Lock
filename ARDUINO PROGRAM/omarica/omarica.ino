@@ -1,20 +1,25 @@
 // Program za blok 8 omaric
 #include <EEPROM.h>
 #include <FastCRC.h>
+#include <SoftwareSerial.h>
+SoftwareSerial softserial(6,7); //RX, TX
 FastCRC8 CRC8;
-#define ADDR 'a'
-#define MSG_LENGTH 10 // Dolžina sporočila brez \n
+
+#define ADDR 1
+#define MSG_LENGTH 11 // Dolžina sporočila brez \n
 #define TOGGLE 2 // DE in RE na pin 2
-#define BUFLEN 10
+#define BUFLEN 15
 #define BUF_OVFL_ERR 0xFE
 #define NFC_DUPLICATE_ERR 0xFE
 
+#define serial softserial
+
 // UKAZI //
-#define NfEn 'e'
-#define NfAd 'a'
-#define NfRm 'r'
-#define Novo 'n'
-#define Open 'o'
+#define NfEn 0xA1
+#define NfAd 0xA2
+#define NfRm 0xA3
+#define Novo 0xDA
+#define Open 0xCD
 #define OKByte 0x2A
 #define REPLY 0xEE
 
@@ -28,28 +33,29 @@ byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na n
 // Načini odklepa: 1 = ključ, 11 = NFC, 111 = FP ?
 void setup() {
   Serial.begin(9600);
+  serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
   memset(buf, 0, sizeof(buf));
   memset(times, 0, sizeof(times));
 }
 
 void loop() {
-
+  if(serial.available())  serialCheck();
 }
 
-void serialEvent() {
+void serialCheck() {
   delay(20);
-  char data[MSG_LENGTH + 1];
-  if (Serial.available() == (MSG_LENGTH + 1)) {
+  byte data[MSG_LENGTH + 1];
+  if (serial.available() == (MSG_LENGTH + 1)) {
     for (byte x = 0; x <= MSG_LENGTH; x++) {
-      data[x] = Serial.read();
+      data[x] = serial.read();
     }
     if (data[MSG_LENGTH] == '\n' and data[0] == ADDR) {
-      char crc8 = CRC8.smbus(data, sizeof(data) - 2);
+      byte crc8 = CRC8.smbus(data, sizeof(data) - 2);
       if (crc8 == data[sizeof(data) - 2]) {
         // Checksum OK
         // Preberi vsebino sporocila --------------------------------------------
-        else if (data[1] == Open and data[2] - '0' < 8 and data[2] - '0' >= 0) {
+        if (data[1] == Open and data[2] - '0' < 8 and data[2] - '0' >= 0) {
           // Odklep na daljavo
           unlock(data[2] - '0');
           free(data);
@@ -112,11 +118,14 @@ void serialEvent() {
           sendResponse(crc8,b,1);
         }
         // Preberi vsebino sporocila --------------------------------------------
+      } else {
+        Serial.println("ch");
+        Serial.println((byte)CRC8.smbus(data, sizeof(data) - 2));
       }
     }
   }
   else {
-    while (Serial.available()) Serial.read();
+    while (serial.available()) serial.read();
   }
 }
 
@@ -125,7 +134,7 @@ void sendResponse(const char * crc8, const char response[], const char len) {
     return; // za vsak slučaj
   }
   char data[MSG_LENGTH + 1];
-  memset(data, 255, sizeof(data));
+  memset(data, 0, sizeof(data));
   data[0] = REPLY;
   data[1] = crc8;
   for (byte x = 0; x < len; x++)  {
@@ -135,9 +144,9 @@ void sendResponse(const char * crc8, const char response[], const char len) {
   data[MSG_LENGTH] = '\n';
   digitalWrite(TOGGLE, HIGH);
   for (byte x = 0; x <= MSG_LENGTH; x++)  {
-    Serial.write(data[x]);
+    serial.write(data[x]);
   }
-  Serial.flush();
+  serial.flush();
   digitalWrite(TOGGLE, LOW);
 }
 
@@ -197,8 +206,8 @@ byte findByUID(byte uid[]) {
 // data[MSG_LENGTH] = '\n';
 // digitalWrite(TOGGLE, HIGH);
 // for (byte x = 0; x <= MSG_LENGTH; x++) {
-// Serial.write(data[x]);
+// serial.write(data[x]);
 // }
-// Serial.flush();
+// serial.flush();
 // digitalWrite(TOGGLE, LOW);
 // }
