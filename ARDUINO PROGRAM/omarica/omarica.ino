@@ -50,6 +50,10 @@ void serialCheck() {
     for (byte x = 0; x <= MSG_LENGTH; x++) {
       data[x] = serial.read();
     }
+    for(byte x=0;x<= MSG_LENGTH;x++) {
+      Serial.print(data[x], HEX); Serial.print(" ");
+    }
+    Serial.println();
     if (data[MSG_LENGTH] == '\n' and data[0] == ADDR) {
       byte crc8 = CRC8.smbus(data, sizeof(data) - 2);
       if (crc8 == data[sizeof(data) - 2]) {
