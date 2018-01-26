@@ -32,6 +32,7 @@ byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na n
 // Dogodek: 5 bitov za način odklepa, 3 biti za št. omarice (0-7)
 // Načini odklepa: 1 = ključ, 11 = NFC, 111 = FP ?
 void setup() {
+
   Serial.begin(9600);
   serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
@@ -41,6 +42,16 @@ void setup() {
 
 void loop() {
   if(serial.available())  serialCheck();
+  if(Serial.available()) {
+    char c = Serial.read();
+    if(c=='e') {
+      // Dump EEPROM
+      for(byte x=0;x<50;x++) {
+        Serial.print(x); Serial.print("  ");
+        Serial.println(EEPROM.read(x));
+      }
+    }
+  }
 }
 
 void serialCheck() {
@@ -96,14 +107,15 @@ void serialCheck() {
           }
           sendResponse(crc8, b, sizeof(b));
         }
-        else if(data[1] == NfAd) {
+        else if(data[1] == NfAd and (7 & data[2]) < 8) {
           // Shrani UID
           // Naslednji bajt je sestavljen iz št. omarice (zadnji 3 biti) in lokacije (prvi bit)
           // Sledi 7 bajtov UID-ja kartice (povečaj dolžino sporočila!!!) - 4-bajtni UID ima na koncu ničle
           byte temp[7];
           for(byte x=0;x<7;x++) temp[x] = data[x+3];
-          if(findByUID(temp) == 255) {
-            byte start = 14 * (7 & data[2])+7*(128 & data[2]);
+          byte x = findByUID(temp);
+          if(x == 255 or (x == (7 & data[2]))) {
+            byte start = 14 * (7 & data[2])+7*((128 & data[2]) >> 7);
             for(byte x=0;x<7;x++) EEPROM.write(start + x, data[x + 3]);
             char b[1] = {OKByte};
             sendResponse(crc8,b,1);
@@ -114,17 +126,14 @@ void serialCheck() {
             sendResponse(crc8,b,1);
           }
         }
-        else if(data[1] == NfRm) {
+        else if(data[1] == NfRm and (7 & data[2]) < 8) {
           // Odstrani kartico
-          byte start = 14 * (7 & data[2])+7*(128 & data[2]);
+          byte start = 14 * (7 & data[2])+7*((128 & data[2]) >> 7);
           for(byte x=0;x<7;x++) EEPROM.write(start + x, 0);
           char b[1] = {OKByte};
           sendResponse(crc8,b,1);
         }
         // Preberi vsebino sporocila --------------------------------------------
-      } else {
-        Serial.println("ch");
-        Serial.println((byte)CRC8.smbus(data, sizeof(data) - 2));
       }
     }
   }
@@ -163,6 +172,7 @@ void openEvent(byte num) {
   if (num > 7) return;
   if (abs(millis() - times[num]) > 1000) {
     // Odklep ni bil napovedan
+    // Zadnji 3 biti: št. omarice, naslednja 2 način odklepa
     addEvent(0b00001000 | num);
   }
 }
@@ -184,11 +194,11 @@ void addEvent(byte val) {
 byte findByUID(byte uid[]) {
   // Preišče lokalno bazo in vrne omarico, ki pripada tej kartici. Če ne obstaja, vrne 255.
   for(byte x=0;x<8;x++) {
-    for(byte y=0;y<7;x++) {
+    for(byte y=0;y<7;y++) {
       if(EEPROM.read(14*x+y) != uid[y]) break;
       if(y == 6) return x;
     }
-    for(byte y=7;y<14;x++) {
+    for(byte y=7;y<14;y++) {
       if(EEPROM.read(14*x+7+y) != uid[y]) break;
       if(y == 13) return x;
     }
