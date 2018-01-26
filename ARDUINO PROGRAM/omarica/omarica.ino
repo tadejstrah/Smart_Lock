@@ -59,9 +59,9 @@ void serialCheck() {
       if (crc8 == data[sizeof(data) - 2]) {
         // Checksum OK
         // Preberi vsebino sporocila --------------------------------------------
-        if (data[1] == Open and data[2] - '0' < 8 and data[2] - '0' >= 0) {
+        if (data[1] == Open and data[2] < 8 and data[2] >= 0) {
           // Odklep na daljavo
-          unlock(data[2] - '0');
+          unlock(data[2]);
           free(data);
           char b[1] = {OKByte};
           sendResponse(crc8, b, 1);
