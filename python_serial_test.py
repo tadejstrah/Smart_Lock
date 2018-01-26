@@ -6,6 +6,7 @@ ser = serial.Serial("/dev/ttyS0")
 ser.baudrate = 9600
 ser.timeout = 0.5
 
+
 msglen = 11
 NfEn = 0xA1
 NfAd = 0xA2
@@ -14,6 +15,8 @@ Novo = 0xDA
 Open = 0xCD
 OKByte = 0x2A
 Reply = 0xEE
+
+
 
 def parseEvents(events):
     print(events)
@@ -26,6 +29,29 @@ def chksum(data):
 	hash = crc8.crc8()
 	hash.update(data[:-2])
 	return int(hash.digest()[0])
+	
+	
+	
+	
+	
+def uploadUID(uid,loc,num,addr):
+	x = (loc << 7) | num
+	c = cmd(addr,[NfAd,x] + uid)
+	if(len(c) > 0):
+		return True
+	return False
+	
+
+
+def open(addr,num):
+	# num 0-7
+	x = cmd(addr,[Open,num])
+	if(len(x) > =):
+		return True
+	return False
+
+
+
 def ping(addr):
 	# Novi dogodki?
 	events = []
@@ -48,6 +74,8 @@ def cmd(addr,data):
 		x = send(addr,data)
 		i = i + 1
 	return x
+	
+	
 def send(addr,data):
 	if(len(data) > msglen - 2): return
 	a = bytearray(msglen + 1)
