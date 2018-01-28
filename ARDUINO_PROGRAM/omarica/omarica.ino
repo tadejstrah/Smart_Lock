@@ -27,15 +27,16 @@ byte temp_counter = 0;
 
 // Vprasanje: ADDR + sporočilo (8 bajtov) + CRC8 + \n
 // Odgovor: 0xFE + checksum vprašanja + response (npr. 0x2A) + CRC8 + \n
+
 long times[8]; // Časi odklepov vseh 8 omaric
 byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na nekaj časa. Prazni dogodki so 0. Če zmanjka prostora za nov dogodek, se zadnjo vrednost prepiše s kodo napake BUF_OVFL_ERR.
 // Dogodek: 5 bitov za način odklepa, 3 biti za št. omarice (0-7)
 // Načini odklepa: 1 = ključ, 11 = NFC, 111 = FP ?
 void setup() {
-
   Serial.begin(9600);
   serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
+  digitalWrite(TOGGLE,LOW);
   memset(buf, 0, sizeof(buf));
   memset(times, 0, sizeof(times));
 }
@@ -110,7 +111,7 @@ void serialCheck() {
         else if(data[1] == NfAd and (7 & data[2]) < 8) {
           // Shrani UID
           // Naslednji bajt je sestavljen iz št. omarice (zadnji 3 biti) in lokacije (prvi bit)
-          // Sledi 7 bajtov UID-ja kartice (povečaj dolžino sporočila!!!) - 4-bajtni UID ima na koncu ničle
+          // Sledi 7 bajtov UID-ja kartice - 4-bajtni UID ima na koncu ničle
           byte temp[7];
           for(byte x=0;x<7;x++) temp[x] = data[x+3];
           byte x = findByUID(temp);

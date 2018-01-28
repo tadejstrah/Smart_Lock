@@ -17,7 +17,7 @@ void setup()
   pinMode(2, OUTPUT);
 
   digitalWrite(2, LOW);
-  s.begin(19200);
+  s.begin(9600);
 }
 
 
@@ -41,5 +41,10 @@ void loop()
     }
     Serial.print("slave: ");
     Serial.println(aa);
+    for(byte x=0;x<aa.length();x++) {
+      Serial.print(aa.charAt(x),HEX);
+      Serial.print(" ");
+    }
+    Serial.println();
   }
 }

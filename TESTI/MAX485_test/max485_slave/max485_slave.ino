@@ -17,7 +17,7 @@ void setup()
   pinMode(2, OUTPUT);
 
   digitalWrite(2, LOW);
-  s.begin(19200);
+  s.begin(9600);
 }
 
 

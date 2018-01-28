@@ -1,11 +1,14 @@
 import serial
 import crc8
+from gpiozero import LED
 from time import sleep
 
 ser = serial.Serial("/dev/ttyS0")
 ser.baudrate = 9600
 ser.timeout = 0.2
 
+tx_toggle = LED(18)
+tx_toggle.off()
 
 msglen = 11
 NfEn = 0xA1
@@ -60,13 +63,11 @@ def parseEvents(addr,x):
 		elif(i != 0):
 			events.append(str(addr) + "." + str(7&i) + "." + str((24&i) >> 3))
 
-
 def chksum(data):
 	hash = crc8.crc8()
 	hash.update(data[:-2])
 	return int(hash.digest()[0])
-	
-	
+
 def removeUID(addr,num,loc):
 	if(addr > 200 or num < 0 or num > 7 or loc < 0 or loc > 1): return 0
 	x = (loc << 7) | num
@@ -80,8 +81,6 @@ def uploadUID(addr,num,loc,uid):
 	c = cmd(addr,[NfAd,x] + uid)
 	if(len(c) == 1): return c
 	return 100
-	
-
 
 def open(addr,num):
 	# num 0-7
@@ -89,7 +88,6 @@ def open(addr,num):
 	c = cmd(addr,[Open,num])
 	if(len(c) == 1): return c
 	return 100
-
 
 def ping(addr,start=0):
 	# Novi dogodki?
@@ -101,7 +99,7 @@ def ping(addr,start=0):
 	if(start > 3): return 12
 	if(r[2] == 1): ping(addr,start+1)
 	return 100
-	
+
 def cmd(addr,data):
 	# Večkrat poskuša poslati
 	i = 0
@@ -110,13 +108,12 @@ def cmd(addr,data):
 		x = send(addr,data)
 		i = i + 1
 	return x
-	
-	
+
 def send(addr,data):
 	# Napake 1-5: communication error
 	# Napaka 11: ni odgovora
 	# Napake 6-7: software error (7 = kartica že obstaja)
-	
+
 	if(len(data) > msglen - 2): return
 	a = bytearray(msglen + 1)
 	a[msglen] = 10
@@ -124,8 +121,10 @@ def send(addr,data):
 	for i in range(len(data)): a[i+1] = data[i]
 	a[msglen-1] = chksum(a)
 	print(list(a))
+	tx_toggle.on()
 	ser.write(a)
-	sleep(0.05)
+	ser.flush()
+	tx_toggle.off()
 	x = (ser.read(msglen+1))
 	if(x == list(bytearray(msglen+1))): return[11]
 	print(list(x))
