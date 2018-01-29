@@ -2,6 +2,12 @@
 #include <EEPROM.h>
 #include <FastCRC.h>
 #include <SoftwareSerial.h>
+#include <Wire.h>
+#include <PN532_I2C.h>
+#include <PN532.h>
+
+PN532_I2C pn532i2c(Wire);
+PN532 nfc(pn532i2c);
 SoftwareSerial softserial(6,7); //RX, TX
 FastCRC8 CRC8;
 
@@ -27,11 +33,13 @@ byte temp_counter = 0;
 
 // Vprasanje: ADDR + sporočilo (8 bajtov) + CRC8 + \n
 // Odgovor: 0xFE + checksum vprašanja + response (npr. 0x2A) + CRC8 + \n
-
+long task1millis = 0;
+boolean nfc_works = 1;
 long times[8]; // Časi odklepov vseh 8 omaric
+byte waiting = 0;
 byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na nekaj časa. Prazni dogodki so 0. Če zmanjka prostora za nov dogodek, se zadnjo vrednost prepiše s kodo napake BUF_OVFL_ERR.
 // Dogodek: 5 bitov za način odklepa, 3 biti za št. omarice (0-7)
-// Načini odklepa: 1 = ključ, 11 = NFC, 111 = FP ?
+// Načini odklepa: 1 = ključ, 2 = NFC, 3 = zaklep
 void setup() {
   Serial.begin(9600);
   serial.begin(9600);
@@ -39,9 +47,46 @@ void setup() {
   digitalWrite(TOGGLE,LOW);
   memset(buf, 0, sizeof(buf));
   memset(times, 0, sizeof(times));
+  nfc.begin();
+  delay(50);
+  uint32_t versiondata = nfc.getFirmwareVersion();
+  if (! versiondata) {
+    Serial.print("Didn't find PN532 board");
+    nfc_works = 0;
+  }
+  nfc.setPassiveActivationRetries(0xFF);
+  nfc.SAMConfig();
+  Serial.println("Waiting for card");
 }
 
 void loop() {
+  // Card?
+  if(nfc_works == 1) {
+    boolean success;
+    uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };
+    uint8_t uidLength;
+    success = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, &uid[0], &uidLength,10);
+    if (success) {
+      Serial.print("UID Value: ");
+      for (uint8_t i = 0; i < uidLength; i++)
+      {
+        Serial.print(" 0x"); Serial.print(uid[i], HEX);
+      }
+      Serial.println("");
+      byte tmp = findByUID(uid);
+      Serial.println(tmp);
+      if(tmp > 7) {
+        // Rdeča luč al neki
+      }
+      else {
+        // Zelena luč al neki
+        unlock(tmp);
+        addEvent(0b00010000 | tmp);
+        times[tmp] = millis();
+      }
+      delay(500);
+    }
+  }
   if(serial.available())  serialCheck();
   if(Serial.available()) {
     char c = Serial.read();
@@ -50,6 +95,16 @@ void loop() {
       for(byte x=0;x<50;x++) {
         Serial.print(x); Serial.print("  ");
         Serial.println(EEPROM.read(x));
+      }
+    }
+  }
+  if(abs(task1millis - millis()) > 1500) {
+    task1millis = millis();
+    for (byte x=0;x<8;x++) {
+      if((1 & (working >> x)) and times[x] > 2000) { // ali čaka na zaklep IN je minilo od tega dogodka vec kot 2s ?
+        // Zakleni omarico
+        lock(x);
+        addEvent(0b00011000 | num);
       }
     }
   }
@@ -166,16 +221,34 @@ void sendResponse(const char * crc8, const char response[], const char len) {
 
 void unlock(byte num) {
   // Odkleni omarico 0-7 (servo.write)
+  if(num > 7) return;
+
+}
+
+void lock(byte num) {
+  // Zakleni omarico
+  if(num > 7) return;
+
 }
 
 void openEvent(byte num) {
   // Funkcija se pokliče, ko se omarica odpre
   if (num > 7) return;
+  if(1 & (waiting >> num)) {
+    waiting &= !(1 << num); //0
+    return;
+  }
   if (abs(millis() - times[num]) > 1000) {
     // Odklep ni bil napovedan
     // Zadnji 3 biti: št. omarice, naslednja 2 način odklepa
     addEvent(0b00001000 | num);
   }
+}
+
+void closeEvent(byte num) {
+  if(num > 7) return;
+  waiting |= 1 << num; //1
+  times[num] = millis();
 }
 
 void addEvent(byte val) {

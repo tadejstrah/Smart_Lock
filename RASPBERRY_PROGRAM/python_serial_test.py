@@ -61,7 +61,7 @@ def parseEvents(addr,x):
 		if(i == BufOvflErr):
 			events.append("BUFOVFL")
 		elif(i != 0):
-			events.append(str(addr) + "." + str(7&i) + "." + str((24&i) >> 3))
+			events.append(str(addr) + "." + str(7&i) + "." + str((56&i) >> 3))
 
 def chksum(data):
 	hash = crc8.crc8()
@@ -72,33 +72,44 @@ def removeUID(addr,num,loc):
 	if(addr > 200 or num < 0 or num > 7 or loc < 0 or loc > 1): return 0
 	x = (loc << 7) | num
 	c = cmd(addr,[NfRm,x])
-	if(len(c) == 1): return c
+	if(len(c) == 1): return c[0]
 	return 100
 
 def uploadUID(addr,num,loc,uid):
 	if(addr > 200 or num < 0 or num > 7 or loc < 0 or loc > 1): return 0
 	x = (loc << 7) | num
 	c = cmd(addr,[NfAd,x] + uid)
-	if(len(c) == 1): return c
+	if(len(c) == 1): return c[0]
 	return 100
 
 def open(addr,num):
 	# num 0-7
 	if(num > 7 or addr > 200): return 0
 	c = cmd(addr,[Open,num])
-	if(len(c) == 1): return c
+	if(len(c) == 1): return c[0]
 	return 100
 
 def ping(addr,start=0):
 	# Novi dogodki?
 	if(addr > 200): return 0
-	if(start > 0): r = cmd(addr,[Novo,OKByte])
-	else: r = cmd(addr,[Novo])
-	if(len(r) == 1): return r
+	r = ping_cmd(addr)
+	if(len(r) == 1): return r[0]
 	parseEvents(addr,r[3:-2])
 	if(start > 3): return 12
 	if(r[2] == 1): ping(addr,start+1)
 	return 100
+
+def ping_cmd(addr):
+	i = 0
+	x = send(addr,[Novo,OKByte])
+	if(len(x) < 2):
+		while(len(x) < 2 and i < 3):
+			x = send(addr,[Novo])
+			i = i + 1
+		if(i >= 3): return [0]
+		return x
+	else:
+		return x
 
 def cmd(addr,data):
 	# Večkrat poskuša poslati
