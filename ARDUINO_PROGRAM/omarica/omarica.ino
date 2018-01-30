@@ -5,7 +5,8 @@
 #include <Wire.h>
 #include <PN532_I2C.h>
 #include <PN532.h>
-
+#include <Servo.h>
+Servo servo0;
 PN532_I2C pn532i2c(Wire);
 PN532 nfc(pn532i2c);
 SoftwareSerial softserial(6,7); //RX, TX
@@ -17,7 +18,8 @@ FastCRC8 CRC8;
 #define BUFLEN 15
 #define BUF_OVFL_ERR 0xFE
 #define NFC_DUPLICATE_ERR 0xFE
-
+#define LOCK 100
+#define UNLOCK 50
 #define serial softserial
 
 // UKAZI //
@@ -30,7 +32,7 @@ FastCRC8 CRC8;
 #define REPLY 0xEE
 
 byte temp_counter = 0;
-
+boolean blabla = 0;
 // Vprasanje: ADDR + sporočilo (8 bajtov) + CRC8 + \n
 // Odgovor: 0xFE + checksum vprašanja + response (npr. 0x2A) + CRC8 + \n
 long task1millis = 0;
@@ -41,6 +43,7 @@ byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na n
 // Dogodek: 5 bitov za način odklepa, 3 biti za št. omarice (0-7)
 // Načini odklepa: 1 = ključ, 2 = NFC, 3 = zaklep
 void setup() {
+  servo0.attach(9);
   Serial.begin(9600);
   serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
@@ -101,10 +104,10 @@ void loop() {
   if(abs(task1millis - millis()) > 1500) {
     task1millis = millis();
     for (byte x=0;x<8;x++) {
-      if((1 & (working >> x)) and times[x] > 2000) { // ali čaka na zaklep IN je minilo od tega dogodka vec kot 2s ?
+      if((1 & (waiting >> x)) and times[x] > 2000) { // ali čaka na zaklep IN je minilo od tega dogodka vec kot 2s ?
         // Zakleni omarico
         lock(x);
-        addEvent(0b00011000 | num);
+        addEvent(0b00011000 | x);
       }
     }
   }
@@ -222,13 +225,19 @@ void sendResponse(const char * crc8, const char response[], const char len) {
 void unlock(byte num) {
   // Odkleni omarico 0-7 (servo.write)
   if(num > 7) return;
-
+  if(num == 0) {
+    if(blabla) servo0.write(UNLOCK);
+    else servo0.write(LOCK);
+    blabla = !blabla;
+  }
 }
 
 void lock(byte num) {
   // Zakleni omarico
   if(num > 7) return;
-
+  if(num == 0) {
+    servo0.write(LOCK);
+  }
 }
 
 void openEvent(byte num) {
