@@ -32,13 +32,13 @@ FastCRC8 CRC8;
 #define REPLY 0xEE
 
 byte temp_counter = 0;
-boolean blabla = 0;
 // Vprasanje: ADDR + sporočilo (8 bajtov) + CRC8 + \n
 // Odgovor: 0xFE + checksum vprašanja + response (npr. 0x2A) + CRC8 + \n
 long task1millis = 0;
 boolean nfc_works = 1;
 long times[8]; // Časi odklepov vseh 8 omaric
 byte waiting = 0;
+byte prevStates = 255;
 byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na nekaj časa. Prazni dogodki so 0. Če zmanjka prostora za nov dogodek, se zadnjo vrednost prepiše s kodo napake BUF_OVFL_ERR.
 // Dogodek: 5 bitov za način odklepa, 3 biti za št. omarice (0-7)
 // Načini odklepa: 1 = ključ, 2 = NFC, 3 = zaklep
@@ -104,13 +104,55 @@ void loop() {
   if(abs(task1millis - millis()) > 1500) {
     task1millis = millis();
     for (byte x=0;x<8;x++) {
-      if((1 & (waiting >> x)) and times[x] > 2000) { // ali čaka na zaklep IN je minilo od tega dogodka vec kot 2s ?
+      if((1 & (waiting >> x)) and abs(millis()-times[x]) > 2000) { // ali čaka na zaklep IN je minilo od tega dogodka vec kot 2s ?
         // Zakleni omarico
+        Serial.print("locked ");Serial.println(x);
         lock(x);
         addEvent(0b00011000 | x);
+        waiting &= !(1 << x);
       }
     }
   }
+  byte currentStates = getStates();
+  for(byte x=0;x<8;x++) {
+    if(!(1 & (prevStates >> x)) and (1 & (currentStates >> x))) {
+      // X se je zaprla
+      closeEvent(x);
+    }
+    else if((1 & (prevStates >> x)) and !(1 & (currentStates >> x))) {
+      // X se je odprla
+      openEvent(x);
+    }
+  }
+  prevStates = currentStates;
+}
+
+byte getStates() {
+  byte retval = 0;
+  for(byte x=0;x<4;x++) {
+    int read = analogRead(x);
+    if(read < 30) {
+      // Obe odprti 00
+      retval &= !(1 << (2*x+1));
+      retval &= !(1 << (2*x));
+    }
+    else if(read > 280 and read < 350) {
+      // Odprta, zaprta 01
+      retval &= !(1 << 2*x);
+      retval |= 1 << 2*x+1;
+    }
+    else if(read > 670 and read < 710) {
+      // Zaprta, odprta 10
+      retval &= !(1 << (2*x+1));
+      retval |= 1 << 2*x;
+    }
+    else if(read > 720 and read < 760) {
+      // Zaprta, zaprta 11
+      retval |= 1 << 2*x+1;
+      retval |= 1 << 2*x;
+    }
+  }
+  return retval;
 }
 
 void serialCheck() {
@@ -225,24 +267,21 @@ void sendResponse(const char * crc8, const char response[], const char len) {
 void unlock(byte num) {
   // Odkleni omarico 0-7 (servo.write)
   if(num > 7) return;
-  if(num == 0) {
-    if(blabla) servo0.write(UNLOCK);
-    else servo0.write(LOCK);
-    blabla = !blabla;
-  }
+  if(num == 0) servo0.write(UNLOCK);
+  Serial.print("unlock ");Serial.println(num);
 }
 
 void lock(byte num) {
   // Zakleni omarico
   if(num > 7) return;
-  if(num == 0) {
-    servo0.write(LOCK);
-  }
+  if(num == 0) servo0.write(LOCK);
+  Serial.print("lock ");Serial.println(num);
 }
 
 void openEvent(byte num) {
   // Funkcija se pokliče, ko se omarica odpre
   if (num > 7) return;
+  Serial.print("openEv ");Serial.println(num);
   if(1 & (waiting >> num)) {
     waiting &= !(1 << num); //0
     return;
@@ -250,6 +289,7 @@ void openEvent(byte num) {
   if (abs(millis() - times[num]) > 1000) {
     // Odklep ni bil napovedan
     // Zadnji 3 biti: št. omarice, naslednja 2 način odklepa
+    Serial.println("nenap");
     addEvent(0b00001000 | num);
   }
 }
@@ -258,6 +298,7 @@ void closeEvent(byte num) {
   if(num > 7) return;
   waiting |= 1 << num; //1
   times[num] = millis();
+  Serial.print("closeEv ");Serial.println(num);
 }
 
 void addEvent(byte val) {
