@@ -109,7 +109,7 @@ void loop() {
         Serial.print("locked ");Serial.println(x);
         lock(x);
         addEvent(0b00011000 | x);
-        waiting &= !(1 << x);
+        waiting &= ~(1 << x);
       }
     }
   }
@@ -119,7 +119,7 @@ void loop() {
       // X se je zaprla
       closeEvent(x);
     }
-    else if((1 & (prevStates >> x)) and !(1 & (currentStates >> x))) {
+    else if((1 & (prevStates >> x)) and (!(1 & (currentStates >> x)))) {
       // X se je odprla
       openEvent(x);
     }
@@ -133,23 +133,23 @@ byte getStates() {
     int read = analogRead(x);
     if(read < 30) {
       // Obe odprti 00
-      retval &= !(1 << (2*x+1));
-      retval &= !(1 << (2*x));
+      retval &= ~(1 << (2*x+1));
+      retval &= ~(1 << (2*x));
     }
     else if(read > 280 and read < 350) {
       // Odprta, zaprta 01
-      retval &= !(1 << 2*x);
-      retval |= 1 << 2*x+1;
+      retval &= ~(1 << 2*x);
+      retval |= 1 << (2*x+1);
     }
     else if(read > 670 and read < 710) {
       // Zaprta, odprta 10
-      retval &= !(1 << (2*x+1));
-      retval |= 1 << 2*x;
+      retval &= ~(1 << (2*x+1));
+      retval |= 1 << (2*x);
     }
     else if(read > 720 and read < 760) {
       // Zaprta, zaprta 11
-      retval |= 1 << 2*x+1;
-      retval |= 1 << 2*x;
+      retval |= 1 << (2*x+1);
+      retval |= 1 << (2*x);
     }
   }
   return retval;
@@ -298,7 +298,7 @@ void closeEvent(byte num) {
   if(num > 7) return;
   waiting |= 1 << num; //1
   times[num] = millis();
-  Serial.print("closeEv ");Serial.println(num);
+  Serial.print("closeEv ");Serial.print(num);Serial.print(" "); Serial.println(times[num]);
 }
 
 void addEvent(byte val) {
