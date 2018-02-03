@@ -28,6 +28,7 @@ FastCRC8 CRC8;
 #define NfRm 0xA3
 #define Novo 0xDA
 #define Open 0xCD
+#define FLock 0xCF
 #define OKByte 0x2A
 #define REPLY 0xEE
 
@@ -174,6 +175,13 @@ void serialCheck() {
         if (data[1] == Open and data[2] < 8 and data[2] >= 0) {
           // Odklep na daljavo
           unlock(data[2]);
+          free(data);
+          char b[1] = {OKByte};
+          sendResponse(crc8, b, 1);
+        }
+        else if (data[1] == FLock and data[2] < 8 and data[2] >= 0) {
+          // Prisilni zaklep
+          lock(data[2]);
           free(data);
           char b[1] = {OKByte};
           sendResponse(crc8, b, 1);

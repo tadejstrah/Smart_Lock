@@ -16,6 +16,7 @@ NfAd = 0xA2
 NfRm = 0xA3
 Novo = 0xDA
 Open = 0xCD
+FLock = 0xCF
 OKByte = 0x2A
 Reply = 0xEE
 
@@ -89,6 +90,12 @@ def open(addr,num):
 	if(len(c) == 1): return c[0]
 	return 100
 
+def lock(addr,num):
+	# num 0-7
+	if(num > 7 or addr > 200): return 0
+	c = cmd(addr,[FLock,num])
+	if(len(c) == 1): return c[0]
+	return 100
 def ping(addr,start=0):
 	# Novi dogodki?
 	if(addr > 200): return 0
