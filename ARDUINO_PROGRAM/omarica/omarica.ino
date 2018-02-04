@@ -21,7 +21,7 @@ FastCRC8 CRC8;
 #define LOCK 100
 #define UNLOCK 50
 #define serial softserial
-
+#define BUZZER 10
 // UKAZI //
 #define NfEn 0xA1
 #define NfAd 0xA2
@@ -44,6 +44,7 @@ byte buf[BUFLEN]; // Shramba dogodkov, ki se izprazni (pošlje Raspberryju) na n
 // Dogodek: 5 bitov za način odklepa, 3 biti za št. omarice (0-7)
 // Načini odklepa: 1 = ključ, 2 = NFC, 3 = zaklep
 void setup() {
+  pinMode(BUZZER,OUTPUT);
   servo0.attach(9);
   Serial.begin(9600);
   serial.begin(9600);
@@ -102,15 +103,21 @@ void loop() {
       }
     }
   }
-  if(abs(task1millis - millis()) > 1500) {
+  if(abs(task1millis - millis()) > 500) {
     task1millis = millis();
     for (byte x=0;x<8;x++) {
       if((1 & (waiting >> x)) and abs(millis()-times[x]) > 2000) { // ali čaka na zaklep IN je minilo od tega dogodka vec kot 2s ?
         // Zakleni omarico
+        tone(BUZZER,392,230);
         Serial.print("locked ");Serial.println(x);
         lock(x);
         addEvent(0b00011000 | x);
         waiting &= ~(1 << x);
+      }
+      else if ((1 & (waiting >> x))) {
+        // Ali samo čaka na zaklep?
+        // Pisk
+        tone(10,523,70);
       }
     }
   }
@@ -178,6 +185,7 @@ void serialCheck() {
           free(data);
           char b[1] = {OKByte};
           sendResponse(crc8, b, 1);
+
         }
         else if (data[1] == FLock and data[2] < 8 and data[2] >= 0) {
           // Prisilni zaklep
@@ -277,6 +285,9 @@ void unlock(byte num) {
   if(num > 7) return;
   if(num == 0) servo0.write(UNLOCK);
   Serial.print("unlock ");Serial.println(num);
+  tone(BUZZER,392,150);
+  delay(150);
+  tone(BUZZER,523,150);
 }
 
 void lock(byte num) {
@@ -291,7 +302,7 @@ void openEvent(byte num) {
   if (num > 7) return;
   Serial.print("openEv ");Serial.println(num);
   if(1 & (waiting >> num)) {
-    waiting &= !(1 << num); //0
+    waiting &= ~(1 << num); //0
     return;
   }
   if (abs(millis() - times[num]) > 1000) {
@@ -307,6 +318,9 @@ void closeEvent(byte num) {
   waiting |= 1 << num; //1
   times[num] = millis();
   Serial.print("closeEv ");Serial.print(num);Serial.print(" "); Serial.println(times[num]);
+  tone(BUZZER,523,150);
+  delay(150);
+  tone(BUZZER,392,150);
 }
 
 void addEvent(byte val) {
