@@ -5,19 +5,18 @@ app = Flask(__name__)
 @app.route('/')
 def asd():
     return "Hello World"
-locked = False
+
 @app.route('/assistant', methods=['POST'])
 def home():
-    global locked
     data = request.get_json()
     data = data["result"]["action"]
     print("Request_action: ", data)
-    if data == "unlock" and locked==True:
+    if data == "unlock":
         open(1,0)
-        locked =  False
-    elif data == "lock" and locked==False:
-        open(1,0)
-        locked = True
+
+    elif data == "lock":
+    	lock(1,0)
+
     return "yo!"
 
 if __name__ == '__main__':
