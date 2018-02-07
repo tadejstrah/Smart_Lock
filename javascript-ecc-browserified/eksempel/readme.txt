@@ -1,4 +1,4 @@
-ECC - Eclliptic Curve Cryptography 
+ECC - Elliptic-curve cryptography 
 
 All of the functions are ASYNC, use Promises as shown in test.html .
 
