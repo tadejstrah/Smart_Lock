@@ -23,8 +23,8 @@ FastCRC8 CRC8;
 #define UNLOCK 100
 #define serial Serial
 #define BUZZER 9
-#define FP_RX 2
-#define FP_TX 3
+#define FP_RX 12
+#define FP_TX 11
 // UKAZI //
 #define NfEn 0xA1
 #define NfAd 0xA2
@@ -53,6 +53,7 @@ void setup() {
   servo0.attach(10);
   serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
+  pinMode(A6,INPUT_PULLUP);
   digitalWrite(TOGGLE,LOW);
   memset(buf, 0, sizeof(buf));
   memset(times, 0, sizeof(times));
@@ -67,7 +68,6 @@ void setup() {
   finger.begin(57600);
   if (finger.verifyPassword()) {
   } else {
-
   }
 
   finger.getTemplateCount();
@@ -120,9 +120,10 @@ void loop() {
     }
   }
 
-  if(abs(task2millis-millis()) > 100) {
+  if(abs(task2millis-millis()) > 500) {
     task2millis = millis();
-    if(getFingerprintIDez() != -1){
+    int a = getFingerprintIDez();
+    if(a != -1){
       unlock(0);
     }
   }
@@ -143,7 +144,7 @@ byte getStates() {
   byte retval = 0;
   for(byte x=0;x<1;x++) {
     int read = analogRead(A6);
-    if(read < 100) {
+    if(read < 2) {
       retval &= ~(1 << (2*x)); // 0
     }
     else {
