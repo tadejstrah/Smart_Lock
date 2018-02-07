@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="220dp" >
+
+    <EditText
+        android:id="@+id/lockreq"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:hint="https://lockreq..."
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/unlockreq"
+        android:layout_width="300dp"
+        android:layout_height="42dp"
+        android:hint="https://unlockreq..."
+        android:layout_below="@id/lockreq"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/shraniurl"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:text="SHRANI"
+        android:textColor="#ffffff"
+        android:background="#4caf50"
+        android:layout_below="@+id/unlockreq"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"/>
+
+
+</RelativeLayout>
