@@ -5,4 +5,8 @@
         />
     <item android:id="@+id/refresh"
         android:title="Restore"/>
+    <item android:id="@+id/setqr"
+        android:title="Set key"/>
+    <item android:id="@+id/getqr"
+        android:title="Get key"/>
 </menu>

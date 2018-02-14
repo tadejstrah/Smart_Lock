@@ -1,107 +1,197 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\b32a9dd1f90196cac60e65349e3dbd03\AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\d04b4649de87ff60da8a57c212f53f08\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\54f7bd1387d964203d816e8f52b538d9\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\65217b20e7c900205b591460c4e93a18\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\5a3ec2ed3dae1db19e334a80ddd001a5\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\615a192a92f7ff22ccf6b27768ec625a\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\73cd83b3f7a6508674cf7b8a1d3d2ff3\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\5fd09130a1d31eff81666b117a0538ff\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\363810ae6996a8d2de86fc7415f616ac\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\0698bb20282913a9886e8d2b33917f51\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\5275d51a22decf2eeed1826539bcdeec\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\5c024917a9ae0fdc7dff85d798459c2d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\6b38c60f82304bf1d846a0c7f4a5ef5b\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-vision:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-11.8.0.aar\eb146c34dca9d967577c68bae9d8c635\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-11.8.0.aar\ec1008ca620bd21091d4529dde95ede0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\590b057abebba61c17ed91e50647ed14\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\37388fc3210705e0d50f8df8169e55ff\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\280dd8b5c6610d597e567287c01fe03a\AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\e166d9497b1d03684b84110055c36bca\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\3c789d0d63edc78ed58c0780823613e6\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\feebb44151ad877d1729158307db5933\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\c5c3263c63c7ef9770d980264f63949d\AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\babb9edd5269360f0551fb13af79ff5b\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\00ce225664c3950f91b4133bc3c8bd49\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\aa959ce23a000c09d45849871bfbef00\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\c8c062b278d4741941604f69466d6909\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\1505aaa04ce267001e7754c884f8bbda\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\70de6bd7668864ee3ee96e206d907e9e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\eb7804129fe29a8149e84bfb19179560\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\938c37415f3e29d366e164de71783c16\AndroidManifest.xml:17:1-24:12
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:3:5-38
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:1-26:12
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:2:11-69
-application
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:5:5-20:19
-MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\b32a9dd1f90196cac60e65349e3dbd03\AndroidManifest.xml:12:5-20
-MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\b32a9dd1f90196cac60e65349e3dbd03\AndroidManifest.xml:12:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\54f7bd1387d964203d816e8f52b538d9\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\54f7bd1387d964203d816e8f52b538d9\AndroidManifest.xml:9:5-20
-	android:supportsRtl
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:10:9-35
-	android:label
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:8:9-41
-	android:roundIcon
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:9:9-54
-	android:icon
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:7:9-43
-	android:allowBackup
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:6:9-35
-	android:theme
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:11:9-40
-activity#com.smarterlock.omarice.MainActivity
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:12:9-18:20
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.CAMERA
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:5:5-65
 	android:name
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:12:19-47
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:13:13-17:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:14:17-69
-	android:name
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:14:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:16:17-77
-	android:name
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:16:27-74
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:5:22-62
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:21:5-23:11
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:22:9-63
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:24:5-66
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml:24:22-64
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:8:5-9:61
+	android:name
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:9:9-58
+application
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:10:5-30:19
+MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\5275d51a22decf2eeed1826539bcdeec\AndroidManifest.xml:12:5-20
+MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\5275d51a22decf2eeed1826539bcdeec\AndroidManifest.xml:12:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\6b38c60f82304bf1d846a0c7f4a5ef5b\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\6b38c60f82304bf1d846a0c7f4a5ef5b\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-vision:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-11.8.0.aar\eb146c34dca9d967577c68bae9d8c635\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-11.8.0.aar\eb146c34dca9d967577c68bae9d8c635\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-11.8.0.aar\ec1008ca620bd21091d4529dde95ede0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-11.8.0.aar\ec1008ca620bd21091d4529dde95ede0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\590b057abebba61c17ed91e50647ed14\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\590b057abebba61c17ed91e50647ed14\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\37388fc3210705e0d50f8df8169e55ff\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\37388fc3210705e0d50f8df8169e55ff\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\280dd8b5c6610d597e567287c01fe03a\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\280dd8b5c6610d597e567287c01fe03a\AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\e166d9497b1d03684b84110055c36bca\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\e166d9497b1d03684b84110055c36bca\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\3c789d0d63edc78ed58c0780823613e6\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\3c789d0d63edc78ed58c0780823613e6\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\feebb44151ad877d1729158307db5933\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\feebb44151ad877d1729158307db5933\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\c5c3263c63c7ef9770d980264f63949d\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\c5c3263c63c7ef9770d980264f63949d\AndroidManifest.xml:5:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\babb9edd5269360f0551fb13af79ff5b\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\babb9edd5269360f0551fb13af79ff5b\AndroidManifest.xml:25:5-20
+	android:supportsRtl
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:15:9-35
+	android:label
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:13:9-41
+	android:roundIcon
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:14:9-54
+	android:icon
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:12:9-43
+	android:allowBackup
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:16:9-40
+activity#com.smarterlock.omarice.MainActivity
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:17:9-23:20
+	android:name
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:17:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:18:13-22:29
+action#android.intent.action.MAIN
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:21:17-77
+	android:name
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:21:27-74
+activity#com.smarterlock.omarice.BarcodeCaptureActivity
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:24:9-29:20
+	android:name
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:24:19-57
+intent-filter#android.intent.action.MAIN
+ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml:26:13-28:29
 uses-sdk
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\b32a9dd1f90196cac60e65349e3dbd03\AndroidManifest.xml:8:5-10:41
-MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\b32a9dd1f90196cac60e65349e3dbd03\AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\d04b4649de87ff60da8a57c212f53f08\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\d04b4649de87ff60da8a57c212f53f08\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\54f7bd1387d964203d816e8f52b538d9\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\54f7bd1387d964203d816e8f52b538d9\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\65217b20e7c900205b591460c4e93a18\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\65217b20e7c900205b591460c4e93a18\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\5a3ec2ed3dae1db19e334a80ddd001a5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\5a3ec2ed3dae1db19e334a80ddd001a5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\615a192a92f7ff22ccf6b27768ec625a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\615a192a92f7ff22ccf6b27768ec625a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\73cd83b3f7a6508674cf7b8a1d3d2ff3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\73cd83b3f7a6508674cf7b8a1d3d2ff3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\5fd09130a1d31eff81666b117a0538ff\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\5fd09130a1d31eff81666b117a0538ff\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\363810ae6996a8d2de86fc7415f616ac\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\363810ae6996a8d2de86fc7415f616ac\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\0698bb20282913a9886e8d2b33917f51\AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Luka\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\0698bb20282913a9886e8d2b33917f51\AndroidManifest.xml:20:5-22:41
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\5275d51a22decf2eeed1826539bcdeec\AndroidManifest.xml:8:5-10:41
+MERGED from [com.airbnb.android:lottie:2.5.0-rc1] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\lottie-2.5.0-rc1.aar\5275d51a22decf2eeed1826539bcdeec\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\5c024917a9ae0fdc7dff85d798459c2d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\5c024917a9ae0fdc7dff85d798459c2d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\6b38c60f82304bf1d846a0c7f4a5ef5b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\6b38c60f82304bf1d846a0c7f4a5ef5b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-vision:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-11.8.0.aar\eb146c34dca9d967577c68bae9d8c635\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-11.8.0.aar\eb146c34dca9d967577c68bae9d8c635\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-11.8.0.aar\ec1008ca620bd21091d4529dde95ede0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-11.8.0.aar\ec1008ca620bd21091d4529dde95ede0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\590b057abebba61c17ed91e50647ed14\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-11.8.0.aar\590b057abebba61c17ed91e50647ed14\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\37388fc3210705e0d50f8df8169e55ff\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-vision-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-11.8.0.aar\37388fc3210705e0d50f8df8169e55ff\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\280dd8b5c6610d597e567287c01fe03a\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-license-11.8.0.aar\280dd8b5c6610d597e567287c01fe03a\AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\e166d9497b1d03684b84110055c36bca\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\e166d9497b1d03684b84110055c36bca\AndroidManifest.xml:21:5-23:54
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\3c789d0d63edc78ed58c0780823613e6\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\3c789d0d63edc78ed58c0780823613e6\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\feebb44151ad877d1729158307db5933\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-vision-common-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-11.8.0.aar\feebb44151ad877d1729158307db5933\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\c5c3263c63c7ef9770d980264f63949d\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\c5c3263c63c7ef9770d980264f63949d\AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\babb9edd5269360f0551fb13af79ff5b\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-media-compat-25.2.0.aar\babb9edd5269360f0551fb13af79ff5b\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\00ce225664c3950f91b4133bc3c8bd49\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\00ce225664c3950f91b4133bc3c8bd49\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\aa959ce23a000c09d45849871bfbef00\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\aa959ce23a000c09d45849871bfbef00\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\c8c062b278d4741941604f69466d6909\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\c8c062b278d4741941604f69466d6909\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\1505aaa04ce267001e7754c884f8bbda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\1505aaa04ce267001e7754c884f8bbda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\70de6bd7668864ee3ee96e206d907e9e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\70de6bd7668864ee3ee96e206d907e9e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\eb7804129fe29a8149e84bfb19179560\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\eb7804129fe29a8149e84bfb19179560\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\938c37415f3e29d366e164de71783c16\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\938c37415f3e29d366e164de71783c16\AndroidManifest.xml:20:5-22:41
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:25.2.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\support-v4-25.2.0.aar\e166d9497b1d03684b84110055c36bca\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Luka\AndroidStudioProjects\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudio\Smart_Lock\android-aplikacija\Omarice\app\src\main\AndroidManifest.xml
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-base-11.8.0.aar\b69eac7d26fa63736efcdb5a3fa58e52\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] C:\Users\Gregor\.gradle\caches\transforms-1\files-1.1\play-services-basement-11.8.0.aar\1e1c8d8d9284f6c638f475189661d2e9\AndroidManifest.xml:24:13-58
