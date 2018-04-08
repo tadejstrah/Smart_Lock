@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="220dp" >
+
+
+    <Button
+        android:id="@+id/shraniurl"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="29dp"
+        android:background="#e84640"
+        android:text="Prekliči"
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/shraniurl"
+        android:layout_alignStart="@+id/shraniurl"
+        android:layout_marginBottom="28dp"
+        app:srcCompat="?android:attr/fingerprintAuthDrawable" />
+
+
+</RelativeLayout>

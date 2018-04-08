@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="main.js">
+
+
+</script>
+<script>
+function jabuk(){
+var sk = genPrivateKey()
+var pk = genPublicKey(sk)
+var text = "jabuk"
+console.log(buffer2base64(sk))
+console.log(buffer2base64(pk))
+encrypt2json(pk, text).then(function(odgovor){
+    decrypt2string(sk, odgovor).then(function(odg)
+    {console.log(odg)})
+
+sign(sk, text).then(function(rez){
+    verify(pk, text, rez).then(function(as){
+        console.log(as)
+    })
+})   
+})
+
+
+}
+</script>
+</head>
+<body>
+<button type="button" onclick="jabuk()">Click Me!</button>
+ 
+</body>
+</html>

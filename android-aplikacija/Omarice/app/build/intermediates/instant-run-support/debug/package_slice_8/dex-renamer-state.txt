@@ -1,0 +1,4 @@
+#Wed Feb 14 09:57:35 CET 2018
+base.0=F\:\\AndroidStudio\\Smart_Lock\\android-aplikacija\\Omarice\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\27
+path.0=classes.dex
+renamed.0=classes.dex
