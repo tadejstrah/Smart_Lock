@@ -12,7 +12,7 @@ Servo servo0;
 PN532_I2C pn532i2c(Wire);
 PN532 nfc(pn532i2c);
 FastCRC8 CRC8;
-long task3millis = 0;
+
 #define ADDR 1
 #define MSG_LENGTH 11 // Dolžina sporočila brez \n
 #define TOGGLE 8  // DE in RE na pin 2
@@ -53,7 +53,6 @@ void setup() {
   servo0.attach(10);
   serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
-  pinMode(A6,INPUT_PULLUP);
   digitalWrite(TOGGLE,LOW);
   memset(buf, 0, sizeof(buf));
   memset(times, 0, sizeof(times));
@@ -67,7 +66,9 @@ void setup() {
   nfc.SAMConfig();
   finger.begin(57600);
   if (finger.verifyPassword()) {
+    Serial.println("password");
   } else {
+  Serial.println("asda");
   }
 
   finger.getTemplateCount();
@@ -122,13 +123,14 @@ void loop() {
 
   if(abs(task2millis-millis()) > 500) {
     task2millis = millis();
+    Serial.println("fp");
     int a = getFingerprintIDez();
+    Serial.println(a);
     if(a != -1){
       unlock(0);
+      Serial.println("fp2");
     }
   }
-  if(abs(task3millis-millis()) > 100) {
-    task3millis = millis();
   byte currentStates = getStates();
   for(byte x=0;x<1;x++) {
     if(!(1 & (prevStates >> x)) and (1 & (currentStates >> x))) {
@@ -140,13 +142,14 @@ void loop() {
       openEvent(x);
     }
   }
-  prevStates = currentStates;}
+  prevStates = currentStates;
 }
 byte getStates() {
   byte retval = 0;
   for(byte x=0;x<1;x++) {
     int read = analogRead(A6);
-    if(read < 20) {
+    Serial.print("read ");Serial.println(read);
+    if(read < 15) {
       retval &= ~(1 << (2*x)); // 0
     }
     else {

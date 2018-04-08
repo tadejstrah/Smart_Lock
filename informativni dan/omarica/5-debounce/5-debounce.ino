@@ -26,6 +26,8 @@ long task3millis = 0;
 #define FP_RX 12
 #define FP_TX 11
 // UKAZI //
+boolean lastButton  = 0;
+boolean currentButton = 0;
 #define NfEn 0xA1
 #define NfAd 0xA2
 #define NfRm 0xA3
@@ -53,6 +55,7 @@ void setup() {
   servo0.attach(10);
   serial.begin(9600);
   pinMode(TOGGLE, OUTPUT);
+  pinMode(3,INPUT_PULLUP);
   pinMode(A6,INPUT_PULLUP);
   digitalWrite(TOGGLE,LOW);
   memset(buf, 0, sizeof(buf));
@@ -73,6 +76,17 @@ void setup() {
   finger.getTemplateCount();
 }
 
+
+boolean debounce(boolean last)
+{
+  boolean current = digitalRead(3);
+  if (last != current)
+  {
+    delay(10);
+    current = digitalRead(3);
+  }
+  return current;
+}
 void loop() {
 
   // Card?
@@ -127,7 +141,7 @@ void loop() {
       unlock(0);
     }
   }
-  if(abs(task3millis-millis()) > 100) {
+ /* if(abs(task3millis-millis()) > 100) {
     task3millis = millis();
   byte currentStates = getStates();
   for(byte x=0;x<1;x++) {
@@ -140,7 +154,17 @@ void loop() {
       openEvent(x);
     }
   }
-  prevStates = currentStates;}
+  prevStates = currentStates;}*/
+  currentButton = debounce(lastButton);
+  // put your main code here, to run repeatedly:
+  if (lastButton == LOW && currentButton == HIGH)
+  {
+      closeEvent(0);
+  }
+  else if(lastButton == HIGH && currentButton == LOW) {
+    openEvent(0);
+  }
+    lastButton = currentButton;
 }
 byte getStates() {
   byte retval = 0;
