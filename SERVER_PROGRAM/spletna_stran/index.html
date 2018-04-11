@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Omarice</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">SmartLock</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <!--<li class="active"><a href="#"><span class='glyphicon glyphicon-chevron-left'></span> Domov</a></li>!-->
+                    <span class="navbar-brand" >
+                        <b>&nbsp;Administratorska aplikacija za upravljanje s sistemom</b>
+                    </span>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class='row'>
+                <div class="col col-sm-4">
+                    <div class="panel panel-info">
+                        <div class='panel-heading'><h3><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;Uporabniki&nbsp;<span class='badge'>724</span></h3></div>
+                        <div class="panel-body">
+                            <a href='seznam.html'><button class="btn btn-link">Seznam</button></a>
+                            <button class="btn btn-link">Dodajanje</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-4">
+                    <div class="panel panel-danger">
+                        <div class='panel-heading'><a href='dogodki.html'><h3><span class='glyphicon glyphicon-th-list'></span>&nbsp;&nbsp;Dogodki</h3></a></div>
+                        <div class="panel-body">
+                            <font style='color:orange;'><span class='glyphicon glyphicon-alert'></span>&nbsp; 1 opozorilo od zadnje prijave<br></font>
+                            <font style='color: orangered;'><span class='glyphicon glyphicon-exclamation-sign'></span>&nbsp; 1 napaka od zadnje prijave</font>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-4">
+                    <div class="panel panel-warning">
+                        <div class='panel-heading'><a href='omarice.html'><h3><span class='glyphicon glyphicon-folder-open'></span>&nbsp;&nbsp;Omarice</h3></a></div>
+                        <div class="panel-body">
+                            Prikaz trenutne zasedenosti in odprtosti omaric.
+                        </div>
+                    </div>
+                </div></div>
+            <div class='row'>
+                <div class="col col-sm-4">
+                    <div class="panel panel-success">
+                        <div class='panel-heading'><a href='statistika.html'><h3><span class='glyphicon glyphicon-signal'></span>&nbsp;&nbsp;Statistika</h3></a></div>
+                        <div class="panel-body">
+                            V zadnjih 24 urah: <b>572</b> odklepov
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-4">
+                    <div class="panel panel-default">
+                        <div class='panel-heading'><a href='settings.html'><h3><span class='glyphicon glyphicon-wrench'></span>&nbsp;&nbsp;Nastavitve</h3></a></div>
+                        <div class="panel-body">
+                            Konfiguracija blokov omaric.
+                        </div>
+                    </div>
+                </div>
+                 <div class="col col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4>Zadnja prijava:<br>ponedeljek, 9. 4. 2018 19:30</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
