@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="navbar.css">
+        <title>Seznam uporabnikov</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Omarice</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <!--<li class="active"><a href="#"><span class='glyphicon glyphicon-chevron-left'></span> Domov</a></li>!-->
+                    <span class="navbar-brand" >
+                        <b> Seznam uporabnikov</b>
+                    </span>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Odjava</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <h4>Išči po:</h4>
+            <div class="checkbox">
+                <label><input id='crazred' type="checkbox" value="">Razred: <select id='razred'>
+                    <option value='1A'>1A</option>
+                    <option value='1B'>1B</option>
+                    <option value='1A'>1C</option>
+                    </select></label>
+            </div>
+            <div class="checkbox">
+                <label><input id='comarica' type="checkbox" value="">Št. omarice: <input type="number"></label>
+            </div>
+            <div class="checkbox">
+                <label><input id='ckartica' type="checkbox" value="">UID kartice: <input type="text"></label>
+            </div>
+            <div class="checkbox">
+                <label><input id='cime' type="checkbox" value="">Ime/priimek:  <input type="text"></label>
+            </div>
+            <button class="btn btn-lg btn-success"><span class="glyphicon glyphicon-search"></span>&nbsp; IŠČI</button>
+            <br>
+            <br>
+            <h4>Rezultati iskanja (1)</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Ime in priimek</th>
+                        <th>Razred</th>
+                        <th>Omarica</th>
+                        <th>UID1</th>
+                        <th>UID2</th>
+                        <th>Dejanja</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Janez Nov.</td>
+                        <td>1A</td>
+                        <td>150</td>
+                        <td>***</td>
+                        <td>***</td>
+                        <td>
+                            <button class='btn btn-sm btn-info'><span class="glyphicon glyphicon-pencil"></span></button>
+                            <button class='btn btn-sm btn-success'>Odpri</button>
+                            <button class='btn btn-sm btn-primary'><span class="glyphicon glyphicon-arrow-right"></span></button>
+                            <button class='btn btn-sm btn-danger'><span class="glyphicon glyphicon-remove"></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            Uveljavi na vseh rezultatih iskanja:&nbsp; <button class='btn btn-sm btn-success'>Odpri</button>
+                            <button class='btn btn-sm btn-primary'><span class="glyphicon glyphicon-arrow-right"></span></button>
+                            <button class='btn btn-sm btn-danger'><span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+
+    </body>
+</html>
